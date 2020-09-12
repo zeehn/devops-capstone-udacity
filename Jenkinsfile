@@ -16,7 +16,7 @@ pipeline {
 
     stage('Scanning for Security') {
       steps { 
-        aquaMicroscanner imageName: 'node:12', notCompliesCmd: 'exit 1', onDisallowed: 'fail'
+        aquaMicroscanner imageName: 'node:12', notCompliesCmd: 'exit 1', onDisallowed: 'fail',  outputFormat: 'html'
       }
     }
 
