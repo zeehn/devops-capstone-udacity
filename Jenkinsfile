@@ -36,6 +36,21 @@ pipeline {
       }
     }
 
+    stage('Creating Cluster') {
+      steps {
+        withAWS(credentials: 'aws-creds', region: 'us-east-2') {
+          sh 'eksctl create cluster --name capstone-project-cluster --version 1.17 --nodegroup-name linux-workers --node-type t2.medium --nodes 3 --nodes-min 1 --nodes-max 4 --node-ami auto --region us-east-2'
+          sh 'aws eks --region=us-east-2 update-kubeconfig --name capstone-project'
+          sh 'kubectl apply -f Deployment/app-deploy.yml'
+        }
+      }
+    }
 
+    stage("Cleaning up") {
+      steps{
+        echo 'Cleaning up...'
+        sh "docker system prune"
+      }
+    }
   }
 }
