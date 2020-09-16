@@ -7,6 +7,6 @@ http
     res.writeHead(200, { 'Content-type': 'text/html' });
     res.end('<h1>Hello from pure NodeJS</h1>');
   })
-  .listen(3000, () => {
+  .listen(80, () => {
     console.log('Server is listening on port 3000');
   });
