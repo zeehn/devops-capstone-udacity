@@ -8,5 +8,5 @@ http
     res.end('<h1>Hello! This is Zakir H. with my Final Project.</h1>');
   })
   .listen(80, () => {
-    console.log('Server is listening on port 3000');
+    console.log('Server is listening on port 80');
   });
