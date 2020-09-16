@@ -4,7 +4,6 @@ metadata:
   name: capstone-project
   labels:
     app: capstone-project
-  namespace: final-project
 spec:
   replicas: 3
   selector:
@@ -34,7 +33,6 @@ metadata:
   name: capstone-project
   labels:
     app: capstone-project
-  namespace: final-project
 spec:
   type: LoadBalancer
   selector:
