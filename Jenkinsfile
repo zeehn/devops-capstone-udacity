@@ -42,10 +42,10 @@ pipeline {
         echo 'Deploying...'
         withAWS(credentials: 'aws-static', region: 'ap-east-2') {
           sh 'aws eks --region us-east-2 update-kubeconfig --name eks-cluster'
-          sh 'kubectl create namespace final-proj'
+          sh 'kubectl create namespace cap-project'
           sh 'kubectl apply -f K8s/app-deploy.yml'
           sh 'kubectl get nodes'
-          sh 'kubectl get all -n my-namespace'   
+          sh 'kubectl get all -n cap-project'   
         }
       }
     }
