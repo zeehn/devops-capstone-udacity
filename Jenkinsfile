@@ -40,7 +40,7 @@ pipeline {
     stage('Deploying') {
       steps{
         echo 'Deploying...'
-        withAWS(credentials: 'aws-creds', region: 'ap-east-2') {
+        withAWS(credentials: 'aws-static', region: 'ap-east-2') {
           sh "kubectl config use-context arn:aws:eks:ap-south-1:960920920983:cluster/capstoneclustersagarnil"
           sh "kubectl apply -f capstone-k8s.yaml"
           sh "kubectl get nodes"
